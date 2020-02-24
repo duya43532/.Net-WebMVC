@@ -87,7 +87,7 @@ namespace WebMVC.Controllers
                 Regex RegMobilePhone = new Regex("^1[3|5|8][0-9]{9}$");
                 if (staff.PhoneNumber.Length != 11 || !RegMobilePhone.IsMatch(staff.PhoneNumber))
                 {
-                    staff.PhoneNumberJudge = "电话号码填写存在错误,必须以13、15、18开头";
+                    staff.PhoneNumberJudge = "电话号码填写存在错误";
                 }
                 //页面返回
                 if (staff.SexJudge != null || staff.PhoneNumberJudge != null)
