@@ -128,7 +128,7 @@ namespace WebMVC.Controllers
                 //性别判断
                 if (staff.Sex != "男" && staff.Sex != "女")
                 {
-                    staff.SexJudge = "性别填写存在错误";
+                    staff.SexJudge = "性别填写存在错误,必须是男女";
                 }
                 //电话号码判断
                 Regex RegMobilePhone = new Regex("^1[3|5|8][0-9]{9}$");
