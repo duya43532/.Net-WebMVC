@@ -1,0 +1,21 @@
+﻿@model WebMVC.Models.HelloViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+@{ if (Model.Index == 1)
+    {
+       
+         <h2>@Model.Text</h2>
+        <h3><b>@Model.Message</b></h3>
+        <h4><s>@Model.Index</s></h4>
+    }}
+<ul>
+    <li>@Html.ActionLink("link1", "Index", "Staffs")</li>
+    <li>@Html.ActionLink("link2", "Index", "Home")</li>
+    <li>@Html.ActionLink("link2", "Contact", "Home")</li>
+</ul>
+
+
+
+

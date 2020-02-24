@@ -1,0 +1,59 @@
+﻿@*@model IEnumerable<WebMVC.Models.Staff>*@
+@model PagedList.IPagedList<WebMVC.Models.Staff>
+
+<div id="StaffList">
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Sex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].EnterDate)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnterDate)
+                </td>
+                <td>
+                    @Html.ActionLink("编辑", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("详细", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("删除", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    </table>
+
+    <div class="pagedList" data-staff-target="#StaffList">
+        @Html.PagedListPager(Model,
+              page => Url.Action("Index", new { page }),
+              PagedListRenderOptions.Classic)
+    </div>
+
+</div>

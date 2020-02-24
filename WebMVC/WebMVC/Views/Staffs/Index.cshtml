@@ -1,0 +1,40 @@
+﻿@*@model IEnumerable<WebMVC.Models.Staff>*@
+@model PagedList.IPagedList<WebMVC.Models.Staff>
+
+@{
+    ViewBag.Title = "光亚通讯录";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>光亚通讯录</h2>
+
+<p>
+    @Html.ActionLink("新建员工", "Create")
+</p>
+    
+   @*@using(Html.BeginForm()){
+    <p>
+        部门：@Html.DropDownList("searchDepartment","所有")
+        查找姓名：@Html.TextBox("searchName")
+        <input type="submit" value="查找" />
+    </p>
+    }*@
+
+@*@using (Ajax.BeginForm(new AjaxOptions
+{
+    HttpMethod = "get",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "StaffList"
+}))
+{
+    <input type="search" name="searchName" />
+    <input type="submit" value="查找" />
+}*@
+
+<form method="get" action="@Url.Action("Index")" data-staff-ajax="true" data-staff-target="#StaffList">
+    <input type="search" name="searchName" data-staff-autocomplete="@Url.Action("AutoComplete")" />
+    <input type="submit" value="查找" />
+</form>
+
+@Html.Partial("P_StaffList",Model)
+
